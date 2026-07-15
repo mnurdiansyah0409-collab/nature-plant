@@ -1,0 +1,110 @@
+[
+  {
+    "id": "p1",
+    "name": "Monstera Deliciosa",
+    "scientificName": "Monstera deliciosa",
+    "category": "tanaman_hias",
+    "categoryName": "Tanaman Hias",
+    "price": 85000,
+    "rating": 4.9,
+    "reviews": 42,
+    "image": "assets/monstera.png",
+    "description": "Tanaman hias populer dengan daun berlubang eksotis yang memberikan kesan tropis modern di dalam ruangan.",
+    "tags": ["Terlaris"],
+    "care": {
+      "water": "Siram 1-2 kali seminggu saat tanah permukaan kering.",
+      "light": "Cahaya tidak langsung sedang hingga terang.",
+      "difficulty": "Mudah"
+    }
+  },
+  {
+    "id": "p2",
+    "name": "Lidah Mertua",
+    "scientificName": "Sansevieria trifasciata",
+    "category": "tanaman_hias",
+    "categoryName": "Tanaman Hias",
+    "price": 45000,
+    "rating": 4.8,
+    "reviews": 56,
+    "image": "assets/lidah_mertua.png",
+    "description": "Tanaman tangguh penyaring udara terbaik yang sangat mudah dirawat dan cocok untuk pemula.",
+    "tags": ["Terlaris"],
+    "care": {
+      "water": "Siram 1 kali dalam 10-14 hari, tahan kekeringan.",
+      "light": "Bisa hidup di segala kondisi cahaya (rendah hingga terik).",
+      "difficulty": "Sangat Mudah"
+    }
+  },
+  {
+    "id": "p3",
+    "name": "Pohon Mangga Harum Manis",
+    "scientificName": "Mangifera indica 'Harum Manis'",
+    "category": "tanaman_buah",
+    "categoryName": "Tanaman Buah",
+    "price": 120000,
+    "rating": 4.7,
+    "reviews": 18,
+    "image": "assets/mangga.png",
+    "description": "Bibit tanaman buah mangga okulasi cepat berbuah dengan rasa buah manis legit khas Harum Manis.",
+    "tags": ["Terlaris"],
+    "care": {
+      "water": "Siram setiap pagi secara teratur saat pertumbuhan awal.",
+      "light": "Cahaya matahari langsung penuh (full sun).",
+      "difficulty": "Sedang"
+    }
+  },
+  {
+    "id": "p4",
+    "name": "Pohon Jeruk Santang Madu",
+    "scientificName": "Citrus reticulata 'Santang'",
+    "category": "tanaman_buah",
+    "categoryName": "Tanaman Buah",
+    "price": 95000,
+    "rating": 4.8,
+    "reviews": 15,
+    "image": "assets/jeruk.png",
+    "description": "Tanaman buah jeruk mandarin kerdil yang rajin berbuah lebat, sangat cocok ditanam di pot (tabulampot).",
+    "tags": ["Terbaru"],
+    "care": {
+      "water": "Siram 1 kali sehari, pastikan pot memiliki drainase baik.",
+      "light": "Cahaya matahari langsung minimal 6 jam sehari.",
+      "difficulty": "Sedang"
+    }
+  },
+  {
+    "id": "p5",
+    "name": "Bibit Tomat Cherry",
+    "scientificName": "Solanum lycopersicum var. cerasiforme",
+    "category": "bibit",
+    "categoryName": "Bibit",
+    "price": 15000,
+    "rating": 4.6,
+    "reviews": 29,
+    "image": "assets/bibit_tomat.png",
+    "description": "Benih tomat cherry berkualitas tinggi dengan persentase tumbuh tinggi, menghasilkan buah merah kecil manis.",
+    "tags": ["Terbaru"],
+    "care": {
+      "water": "Siram setiap pagi dan sore secara lembut (menjaga kelembapan).",
+      "light": "Cahaya matahari tidak langsung hingga langsung sedang.",
+      "difficulty": "Mudah"
+    }
+  },
+  {
+    "id": "p6",
+    "name": "Bibit Cabe Rawit Unggul",
+    "scientificName": "Capsicum frutescens 'Rawit'",
+    "category": "bibit",
+    "categoryName": "Bibit",
+    "price": 12000,
+    "rating": 4.9,
+    "reviews": 64,
+    "image": "assets/bibit_cabe.png",
+    "description": "Bibit cabai rawit pedas unggulan yang tahan hama, sangat produktif menghasilkan buah lebat.",
+    "tags": ["Terlaris"],
+    "care": {
+      "water": "Siram secukupnya, jangan biarkan air menggenang.",
+      "light": "Cahaya matahari langsung penuh.",
+      "difficulty": "Mudah"
+    }
+  }
+]
