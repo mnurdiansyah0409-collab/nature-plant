@@ -1,7 +1,7 @@
 // Nature Plant - Core Logic & E-commerce System
 
 // --- Constants & Config ---
-const WHATSAPP_NUMBER = "6281234567890"; // Nomor WhatsApp Penjual
+const WHATSAPP_NUMBER = "6289520294467"; // Nomor WhatsApp Penjual
 const SHIPPING_FEES = {
     "REG": 15000,
     "EXP": 30000,
