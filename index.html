@@ -19,8 +19,8 @@
     <header class="header">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <img src="assets/logo.svg" alt="Nature Plant Logo" class="logo-img">
-                <span class="logo-text">Nature Plant</span>
+                <img src="assets/logo.svg" alt="Nature Plant Logo" class="logo-img" id="logoImgHeader">
+                <span class="logo-text" id="logoTextHeader">Nature Plant</span>
             </a>
             <nav class="nav-menu" id="navMenu">
                 <a href="#hero" class="nav-link active">Beranda</a>
@@ -47,10 +47,10 @@
         <div class="hero-overlay"></div>
         <div class="container hero-container">
             <div class="hero-content">
-                <span class="hero-tag">Premium Plants & Seeds</span>
-                <h1 class="hero-title">Nature Plant</h1>
-                <p class="hero-slogan">Membawa Alam Lebih Dekat Kerumah Anda</p>
-                <p class="hero-description">Temukan koleksi tanaman hias segar, bibit buah berkualitas, dan benih sayuran unggulan untuk menghidupkan setiap sudut ruangan dan halaman Anda.</p>
+                <span class="hero-tag" id="heroTag">Premium Plants & Seeds</span>
+                <h1 class="hero-title" id="heroTitle">Nature Plant</h1>
+                <p class="hero-slogan" id="heroSlogan">Membawa Alam Lebih Dekat Kerumah Anda</p>
+                <p class="hero-description" id="heroDesc">Temukan koleksi tanaman hias segar, bibit buah berkualitas, dan benih sayuran unggulan untuk menghidupkan setiap sudut ruangan dan halaman Anda.</p>
                 <div class="hero-buttons">
                     <a href="#katalog" class="btn btn-primary">Lihat Produk <i data-lucide="arrow-right"></i></a>
                     <a href="#care-tips" class="btn btn-outline">Tips Perawatan</a>
@@ -270,9 +270,6 @@
                     <button type="submit" class="btn btn-primary btn-block">
                         Masuk <i data-lucide="log-in" style="width: 16px; height: 16px; margin-left: 0.5rem; vertical-align: middle;"></i>
                     </button>
-                    <div class="login-hints">
-                        <p>Demo Akses: <strong>admin</strong> / <strong>admin</strong></p>
-                    </div>
                 </form>
             </div>
 
@@ -280,52 +277,54 @@
             <div id="adminDashboard" style="display: none;">
                 <div class="admin-modal-header">
                     <div class="admin-header-title-row">
-                        <h2><i data-lucide="sliders"></i> Admin Panel - Nature Plant</h2>
+                        <h2><i data-lucide="sliders"></i> Admin Panel - <span class="shop-name-title">Nature Plant</span></h2>
                         <button type="button" class="btn btn-outline btn-sm btn-danger-outline" id="adminLogoutBtn">
                             <i data-lucide="log-out"></i> Keluar
                         </button>
                     </div>
                     <p>Kelola data katalog produk tanaman di toko Anda secara instan.</p>
                 </div>
-                <div class="admin-grid">
-                    <!-- Product Form (Add / Edit) -->
-                    <div class="admin-form-box">
-                        <h3 id="adminFormTitle">Tambah Produk Baru</h3>
-                        <form id="adminProductForm">
-                            <input type="hidden" id="editProductId">
-                            <div class="form-group">
-                                <label for="adminName">Nama Produk *</label>
-                                <input type="text" id="adminName" required placeholder="Contoh: Monstera Deliciosa">
-                            </div>
-                            <div class="form-group">
-                                <label for="adminScientific">Nama Ilmiah / Botani</label>
-                                <input type="text" id="adminScientific" placeholder="Contoh: Monstera deliciosa">
-                            </div>
-                            <div class="form-row">
+                
+                <!-- Tab Navigation Menu -->
+                <div class="admin-tabs">
+                    <button type="button" class="admin-tab-btn active" data-tab="catalog"><i data-lucide="layout-grid"></i> Kelola Katalog</button>
+                    <button type="button" class="admin-tab-btn" data-tab="settings"><i data-lucide="settings"></i> Pengaturan Toko & Tampilan</button>
+                </div>
+
+                <!-- Tab 1: Catalog -->
+                <div id="tabCatalog" class="admin-tab-content">
+                    <div class="admin-grid">
+                        <!-- Product Form (Add / Edit) -->
+                        <div class="admin-form-box">
+                            <h3 id="adminFormTitle">Tambah Produk Baru</h3>
+                            <form id="adminProductForm">
+                                <input type="hidden" id="editProductId">
                                 <div class="form-group">
-                                    <label for="adminCategory">Kategori *</label>
-                                    <select id="adminCategory" required>
-                                        <option value="tanaman_hias">Tanaman Hias</option>
-                                        <option value="tanaman_buah">Tanaman Buah</option>
-                                        <option value="bibit">Bibit Tanaman</option>
-                                    </select>
+                                    <label for="adminName">Nama Produk *</label>
+                                    <input type="text" id="adminName" required placeholder="Contoh: Monstera Deliciosa">
                                 </div>
                                 <div class="form-group">
-                                    <label for="adminPrice">Harga (Rp) *</label>
-                                    <input type="number" id="adminPrice" required placeholder="Harga dalam angka">
+                                    <label for="adminScientific">Nama Ilmiah / Botani</label>
+                                    <input type="text" id="adminScientific" placeholder="Contoh: Monstera deliciosa">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="adminImage">File Gambar (Path) *</label>
-                                <select id="adminImage" required>
-                                    <option value="assets/monstera.png">Monstera Deliciosa (assets/monstera.png)</option>
-                                    <option value="assets/lidah_mertua.png">Lidah Mertua (assets/lidah_mertua.png)</option>
-                                    <option value="assets/mangga.png">Mangga Harum Manis (assets/mangga.png)</option>
-                                    <option value="assets/jeruk.png">Jeruk Santang (assets/jeruk.png)</option>
-                                    <option value="assets/bibit_tomat.png">Bibit Tomat Cherry (assets/bibit_tomat.png)</option>
-                                    <option value="assets/bibit_cabe.png">Bibit Cabe Rawit (assets/bibit_cabe.png)</option>
-                                </select>
-                            </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="adminCategory">Kategori *</label>
+                                        <select id="adminCategory" required>
+                                            <option value="tanaman_hias">Tanaman Hias</option>
+                                            <option value="tanaman_buah">Tanaman Buah</option>
+                                            <option value="bibit">Bibit Tanaman</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="adminPrice">Harga (Rp) *</label>
+                                        <input type="number" id="adminPrice" required placeholder="Harga dalam angka">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminImage">File Gambar (Path / URL) *</label>
+                                    <input type="text" id="adminImage" required placeholder="Contoh: assets/monstera.png atau URL eksternal">
+                                </div>
                             <div class="form-group">
                                 <label for="adminDesc">Deskripsi Singkat *</label>
                                 <textarea id="adminDesc" rows="3" required placeholder="Jelaskan keistimewaan produk..."></textarea>
@@ -391,6 +390,111 @@
                         </div>
                     </div>
                 </div>
+                </div> <!-- End of #tabCatalog -->
+
+                <!-- Tab 2: Settings -->
+                <div id="tabSettings" class="admin-tab-content" style="display: none;">
+                    <form id="adminSettingsForm">
+                        <div class="settings-grid">
+                            <!-- Column 1: Shop Identity & Accent Theme -->
+                            <div class="settings-section-box">
+                                <h3><i data-lucide="store"></i> Identitas & Tampilan Toko</h3>
+                                
+                                <div class="form-group">
+                                    <label for="setShopName">Nama Toko *</label>
+                                    <input type="text" id="setShopName" required placeholder="Contoh: Nature Plant">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="setLogoPath">Logo Toko (URL / Path) *</label>
+                                    <input type="text" id="setLogoPath" required placeholder="Contoh: assets/logo.svg">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="setWhatsappNumber">Nomor WhatsApp Pengelola *</label>
+                                    <input type="text" id="setWhatsappNumber" required placeholder="Format: 6289xxxxxxxx (tanpa spasi / +)">
+                                    <small style="color: var(--text-muted); font-size: 0.75rem;">Digunakan untuk menerima pesanan belanja dari pembeli.</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Tema Warna Website *</label>
+                                    <div class="theme-picker-container">
+                                        <input type="radio" name="setTheme" id="themeForest" value="forest_green" class="theme-option" checked>
+                                        <label for="themeForest" class="theme-label">
+                                            <span class="theme-color-dot" style="background-color: #2e7d56;"></span> Forest Green
+                                        </label>
+                                        
+                                        <input type="radio" name="setTheme" id="themeOcean" value="ocean_blue" class="theme-option">
+                                        <label for="themeOcean" class="theme-label">
+                                            <span class="theme-color-dot" style="background-color: #018abd;"></span> Ocean Blue
+                                        </label>
+                                        
+                                        <input type="radio" name="setTheme" id="themeTerracotta" value="terracotta" class="theme-option">
+                                        <label for="themeTerracotta" class="theme-label">
+                                            <span class="theme-color-dot" style="background-color: #c15c3d;"></span> Terracotta
+                                        </label>
+                                        
+                                        <input type="radio" name="setTheme" id="themeMidnight" value="midnight_purple" class="theme-option">
+                                        <label for="themeMidnight" class="theme-label">
+                                            <span class="theme-color-dot" style="background-color: #7b2cbf;"></span> Midnight
+                                        </label>
+                                        
+                                        <input type="radio" name="setTheme" id="themeCrimson" value="crimson_red" class="theme-option">
+                                        <label for="themeCrimson" class="theme-label">
+                                            <span class="theme-color-dot" style="background-color: #b7094c;"></span> Crimson Red
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Column 2: Header Hero Banner & Footer Contacts -->
+                            <div class="settings-section-box">
+                                <h3><i data-lucide="edit"></i> Konten Banner & Kontak</h3>
+                                
+                                <div class="form-group">
+                                    <label for="setHeroTag">Tag Line Hero Banner</label>
+                                    <input type="text" id="setHeroTag" placeholder="Contoh: Premium Plants & Seeds">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="setHeroTitle">Judul Hero Banner</label>
+                                    <input type="text" id="setHeroTitle" placeholder="Contoh: Nature Plant">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="setHeroSlogan">Slogan Hero Banner</label>
+                                    <input type="text" id="setHeroSlogan" placeholder="Slogan utama website">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="setHeroDesc">Deskripsi Hero Banner</label>
+                                    <textarea id="setHeroDesc" rows="2" placeholder="Deskripsi produk di banner utama"></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="setAddress">Alamat Lengkap Toko</label>
+                                    <textarea id="setAddress" rows="2" placeholder="Alamat fisik di footer"></textarea>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="setEmail">Email Hubungi</label>
+                                        <input type="email" id="setEmail" placeholder="Email toko">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="setContactPhone">Telepon Hubungi</label>
+                                        <input type="text" id="setContactPhone" placeholder="Nomor telepon kantor/toko">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bottom Actions -->
+                            <div class="settings-footer">
+                                <button type="submit" class="btn btn-primary"><i data-lucide="check-square"></i> Simpan Pengaturan</button>
+                            </div>
+                        </div>
+                    </form>
+                </div> <!-- End of #tabSettings -->
             </div>
         </div>
     </div>
@@ -399,9 +503,9 @@
     <footer class="footer">
         <div class="container footer-container">
             <div class="footer-about">
-                <h3><img src="assets/logo.svg" alt="Nature Plant Logo" class="logo-img-footer"> Nature Plant</h3>
-                <p>Membawa Alam Lebih Dekat Kerumah Anda</p>
-                <p class="about-text">Kami menyediakan tanaman hias segar, tanaman buah produktif, dan bibit tanaman berkualitas premium untuk kebutuhan pekarangan dan interior rumah Anda.</p>
+                <h3><img src="assets/logo.svg" alt="Nature Plant Logo" class="logo-img-footer" id="logoImgFooter"> <span id="logoTextFooter">Nature Plant</span></h3>
+                <p id="footerTagline">Membawa Alam Lebih Dekat Kerumah Anda</p>
+                <p class="about-text" id="footerAboutText">Kami menyediakan tanaman hias segar, tanaman buah produktif, dan bibit tanaman berkualitas premium untuk kebutuhan pekarangan dan interior rumah Anda.</p>
             </div>
             <div class="footer-links">
                 <h4>Official Store</h4>
@@ -418,14 +522,14 @@
             </div>
             <div class="footer-contact">
                 <h4>Hubungi Kami</h4>
-                <p><i data-lucide="map-pin"></i> Kp Lebak Wangi R03/01 Desa Pamegarsari Kec. Parung Kab. Bogor Jawa Barat</p>
-                <p><i data-lucide="mail"></i> natureplant99@gmail.com</p>
-                <p><i data-lucide="phone"></i> +62 895-2029-4467</p>
+                <p><i data-lucide="map-pin"></i> <span id="contactAddress">Kp Lebak Wangi R03/01 Desa Pamegarsari Kec. Parung Kab. Bogor Jawa Barat</span></p>
+                <p><i data-lucide="mail"></i> <span id="contactEmail">natureplant99@gmail.com</span></p>
+                <p><i data-lucide="phone"></i> <span id="contactPhone">+62 895-2029-4467</span></p>
             </div>
         </div>
         <div class="footer-bottom">
             <div class="container">
-                <p>&copy; 2026 Nature Plant. Hak Cipta Dilindungi Undang-Undang.</p>
+                <p>&copy; 2026 <span id="logoTextCopyright">Nature Plant</span>. Hak Cipta Dilindungi Undang-Undang.</p>
             </div>
         </div>
     </footer>
