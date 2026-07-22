@@ -248,111 +248,147 @@
     <div class="modal-overlay" id="adminModal">
         <div class="modal-content admin-modal-content">
             <button class="modal-close-btn" id="adminCloseBtn"><i data-lucide="x"></i></button>
-            <div class="admin-modal-header">
-                <h2><i data-lucide="sliders"></i> Admin Panel - Nature Plant</h2>
-                <p>Kelola data katalog produk tanaman di toko Anda secara instan.</p>
-            </div>
-            <div class="admin-grid">
-                <!-- Product Form (Add / Edit) -->
-                <div class="admin-form-box">
-                    <h3 id="adminFormTitle">Tambah Produk Baru</h3>
-                    <form id="adminProductForm">
-                        <input type="hidden" id="editProductId">
-                        <div class="form-group">
-                            <label for="adminName">Nama Produk *</label>
-                            <input type="text" id="adminName" required placeholder="Contoh: Monstera Deliciosa">
-                        </div>
-                        <div class="form-group">
-                            <label for="adminScientific">Nama Ilmiah / Botani</label>
-                            <input type="text" id="adminScientific" placeholder="Contoh: Monstera deliciosa">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="adminCategory">Kategori *</label>
-                                <select id="adminCategory" required>
-                                    <option value="tanaman_hias">Tanaman Hias</option>
-                                    <option value="tanaman_buah">Tanaman Buah</option>
-                                    <option value="bibit">Bibit Tanaman</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="adminPrice">Harga (Rp) *</label>
-                                <input type="number" id="adminPrice" required placeholder="Harga dalam angka">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="adminImage">File Gambar (Path) *</label>
-                            <select id="adminImage" required>
-                                <option value="assets/monstera.png">Monstera Deliciosa (assets/monstera.png)</option>
-                                <option value="assets/lidah_mertua.png">Lidah Mertua (assets/lidah_mertua.png)</option>
-                                <option value="assets/mangga.png">Mangga Harum Manis (assets/mangga.png)</option>
-                                <option value="assets/jeruk.png">Jeruk Santang (assets/jeruk.png)</option>
-                                <option value="assets/bibit_tomat.png">Bibit Tomat Cherry (assets/bibit_tomat.png)</option>
-                                <option value="assets/bibit_cabe.png">Bibit Cabe Rawit (assets/bibit_cabe.png)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="adminDesc">Deskripsi Singkat *</label>
-                            <textarea id="adminDesc" rows="3" required placeholder="Jelaskan keistimewaan produk..."></textarea>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="adminTags">Tag Produk (Pisahkan dengan koma)</label>
-                                <input type="text" id="adminTags" placeholder="Contoh: Terlaris, Terbaru">
-                            </div>
-                            <div class="form-group">
-                                <label for="adminCareDiff">Tingkat Perawatan</label>
-                                <select id="adminCareDiff">
-                                    <option value="Sangat Mudah">Sangat Mudah</option>
-                                    <option value="Mudah">Mudah</option>
-                                    <option value="Sedang">Sedang</option>
-                                    <option value="Sulit">Sulit</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="adminCareWater">Kebutuhan Air</label>
-                                <input type="text" id="adminCareWater" placeholder="Contoh: Siram 1 kali sehari">
-                            </div>
-                            <div class="form-group">
-                                <label for="adminCareLight">Pencahayaan</label>
-                                <input type="text" id="adminCareLight" placeholder="Contoh: Sinar matahari langsung">
-                            </div>
-                        </div>
-                        <div class="admin-form-actions">
-                            <button type="submit" class="btn btn-primary" id="saveProductBtn">Simpan Produk</button>
-                            <button type="button" class="btn btn-outline" id="cancelEditBtn">Batal</button>
-                        </div>
-                    </form>
+            <!-- Admin Login Box -->
+            <div id="adminLoginBox" class="admin-login-box">
+                <div class="login-header">
+                    <div class="login-icon"><i data-lucide="lock"></i></div>
+                    <h2>Login Admin</h2>
+                    <p>Masukkan username & password untuk mengakses panel kontrol.</p>
                 </div>
+                <form id="adminLoginForm">
+                    <div class="form-group">
+                        <label for="loginUsername">Username</label>
+                        <input type="text" id="loginUsername" required placeholder="Masukkan username admin">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required placeholder="Masukkan password admin">
+                    </div>
+                    <div class="error-message" id="loginErrorMsg" style="display: none;">
+                        <i data-lucide="alert-circle"></i> Username atau password salah!
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Masuk <i data-lucide="log-in" style="width: 16px; height: 16px; margin-left: 0.5rem; vertical-align: middle;"></i>
+                    </button>
+                    <div class="login-hints">
+                        <p>Demo Akses: <strong>admin</strong> / <strong>admin</strong></p>
+                    </div>
+                </form>
+            </div>
 
-                <!-- Product List for Admin -->
-                <div class="admin-list-box">
-                    <h3>Daftar Produk Aktif</h3>
-                    <div class="admin-actions-bar">
-                        <button class="btn btn-outline btn-sm" id="exportJsonBtn">
-                            <i data-lucide="download"></i> Ekspor Data (JSON)
-                        </button>
-                        <button class="btn btn-outline btn-sm btn-danger-outline" id="resetProductsBtn">
-                            <i data-lucide="rotate-ccw"></i> Reset Database
+            <!-- Admin Dashboard -->
+            <div id="adminDashboard" style="display: none;">
+                <div class="admin-modal-header">
+                    <div class="admin-header-title-row">
+                        <h2><i data-lucide="sliders"></i> Admin Panel - Nature Plant</h2>
+                        <button type="button" class="btn btn-outline btn-sm btn-danger-outline" id="adminLogoutBtn">
+                            <i data-lucide="log-out"></i> Keluar
                         </button>
                     </div>
-                    <div class="admin-table-container">
-                        <table class="admin-table">
-                            <thead>
-                                <tr>
-                                    <th>Gambar</th>
-                                    <th>Nama</th>
-                                    <th>Kategori</th>
-                                    <th>Harga</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody id="adminProductTableBody">
-                                <!-- Rendered dynamically by JS -->
-                            </tbody>
-                        </table>
+                    <p>Kelola data katalog produk tanaman di toko Anda secara instan.</p>
+                </div>
+                <div class="admin-grid">
+                    <!-- Product Form (Add / Edit) -->
+                    <div class="admin-form-box">
+                        <h3 id="adminFormTitle">Tambah Produk Baru</h3>
+                        <form id="adminProductForm">
+                            <input type="hidden" id="editProductId">
+                            <div class="form-group">
+                                <label for="adminName">Nama Produk *</label>
+                                <input type="text" id="adminName" required placeholder="Contoh: Monstera Deliciosa">
+                            </div>
+                            <div class="form-group">
+                                <label for="adminScientific">Nama Ilmiah / Botani</label>
+                                <input type="text" id="adminScientific" placeholder="Contoh: Monstera deliciosa">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="adminCategory">Kategori *</label>
+                                    <select id="adminCategory" required>
+                                        <option value="tanaman_hias">Tanaman Hias</option>
+                                        <option value="tanaman_buah">Tanaman Buah</option>
+                                        <option value="bibit">Bibit Tanaman</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminPrice">Harga (Rp) *</label>
+                                    <input type="number" id="adminPrice" required placeholder="Harga dalam angka">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="adminImage">File Gambar (Path) *</label>
+                                <select id="adminImage" required>
+                                    <option value="assets/monstera.png">Monstera Deliciosa (assets/monstera.png)</option>
+                                    <option value="assets/lidah_mertua.png">Lidah Mertua (assets/lidah_mertua.png)</option>
+                                    <option value="assets/mangga.png">Mangga Harum Manis (assets/mangga.png)</option>
+                                    <option value="assets/jeruk.png">Jeruk Santang (assets/jeruk.png)</option>
+                                    <option value="assets/bibit_tomat.png">Bibit Tomat Cherry (assets/bibit_tomat.png)</option>
+                                    <option value="assets/bibit_cabe.png">Bibit Cabe Rawit (assets/bibit_cabe.png)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="adminDesc">Deskripsi Singkat *</label>
+                                <textarea id="adminDesc" rows="3" required placeholder="Jelaskan keistimewaan produk..."></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="adminTags">Tag Produk (Pisahkan dengan koma)</label>
+                                    <input type="text" id="adminTags" placeholder="Contoh: Terlaris, Terbaru">
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminCareDiff">Tingkat Perawatan</label>
+                                    <select id="adminCareDiff">
+                                        <option value="Sangat Mudah">Sangat Mudah</option>
+                                        <option value="Mudah">Mudah</option>
+                                        <option value="Sedang">Sedang</option>
+                                        <option value="Sulit">Sulit</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="adminCareWater">Kebutuhan Air</label>
+                                    <input type="text" id="adminCareWater" placeholder="Contoh: Siram 1 kali sehari">
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminCareLight">Pencahayaan</label>
+                                    <input type="text" id="adminCareLight" placeholder="Contoh: Sinar matahari langsung">
+                                </div>
+                            </div>
+                            <div class="admin-form-actions">
+                                <button type="submit" class="btn btn-primary" id="saveProductBtn">Simpan Produk</button>
+                                <button type="button" class="btn btn-outline" id="cancelEditBtn">Batal</button>
+                            </div>
+                        </form>
+                    </div>
+    
+                    <!-- Product List for Admin -->
+                    <div class="admin-list-box">
+                        <h3>Daftar Produk Aktif</h3>
+                        <div class="admin-actions-bar">
+                            <button class="btn btn-outline btn-sm" id="exportJsonBtn">
+                                <i data-lucide="download"></i> Ekspor Data (JSON)
+                            </button>
+                            <button class="btn btn-outline btn-sm btn-danger-outline" id="resetProductsBtn">
+                                <i data-lucide="rotate-ccw"></i> Reset Database
+                            </button>
+                        </div>
+                        <div class="admin-table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Gambar</th>
+                                        <th>Nama</th>
+                                        <th>Kategori</th>
+                                        <th>Harga</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="adminProductTableBody">
+                                    <!-- Rendered dynamically by JS -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
